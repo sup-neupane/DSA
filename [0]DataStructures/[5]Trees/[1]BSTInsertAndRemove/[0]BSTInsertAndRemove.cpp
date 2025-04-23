@@ -19,7 +19,7 @@ class TreeNode {
 // Insert a new node and return the root of the tree.
 TreeNode* insert(TreeNode* root, int val) {
     if (!root) {
-        return new TreeNode(val);
+        return nullptr;
     }
 
     if (val > root->val_) { 
