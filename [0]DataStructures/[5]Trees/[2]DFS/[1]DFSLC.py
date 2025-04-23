@@ -1,6 +1,7 @@
 # Construct Binary Tree from Preorder and Inorder Traversal
 # https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
 # Definition for a binary tree node.
+from typing import List, Optional
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
