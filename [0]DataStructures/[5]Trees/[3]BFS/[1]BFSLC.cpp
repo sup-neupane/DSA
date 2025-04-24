@@ -74,8 +74,7 @@ class Solution {
                     queue.pop();
                     if (i == length - 1) {
                         res.push_back(curr->val);
-                    }
-                    
+                    }                    
                     if(curr->left){
                         queue.push(curr->left);
                     }
