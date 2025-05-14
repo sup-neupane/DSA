@@ -29,31 +29,28 @@ public:
     }
 };
 
+#include <unordered_map>
+using namespace std;
 
 //There are better ways to solve this problem for larger numbers
-
-#include <vector>
-using namespace std;
-//With memoization:
 class Solution {
 public:
-    int climbStairs(int n) {
-        // Create a memoization array initialized with -1
-        vector<int> memo(n + 1, -1);
-        return climb(n, memo);
-    }
-    
-    int climb(int n, vector<int>& memo) {
-        // Base cases
-        if (n == 0) return 1; // 1 way to stay at step 0
-        if (n == 1) return 1; // 1 way to reach step 1
-        
-        // Check if already computed
-        if (memo[n] != -1) return memo[n];
-        
-        // Recurrence relation
-        memo[n] = climb(n - 1, memo) + climb(n - 2, memo);
+    int helper(int n, unordered_map<int, int>& memo) {
+        if (n <= 1) {
+            return 1;
+        }
+
+        if (memo.count(n)) {
+            return memo[n];
+        }
+
+        memo[n] = helper(n - 1, memo) + helper(n - 2, memo);
         return memo[n];
+    }
+
+    int climbStairs(int n) {
+        unordered_map<int, int> memo;
+        return helper(n, memo);
     }
 };
 
