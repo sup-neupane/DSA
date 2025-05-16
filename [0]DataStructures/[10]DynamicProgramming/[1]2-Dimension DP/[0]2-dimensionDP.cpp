@@ -16,13 +16,13 @@ int bruteForce(int r, int c, int rows, int cols) {
 
 // Memoization - Time and Space: O(n * m)
 int memoization(int r, int c, int rows, int cols, vector<vector<int>>& cache) {
-    if (r == rows or c == cols) {
+    if (r == rows || c == cols) {
         return 0;
     }
     if (cache[r][c] > 0) {
         return cache[r][c];
     }
-    if (r == rows - 1 or c == cols - 1) {
+    if (r == rows - 1 || c == cols - 1) {
         return 1;
     }
     cache[r][c] = memoization(r + 1, c, rows, cols, cache) +  
@@ -32,16 +32,16 @@ int memoization(int r, int c, int rows, int cols, vector<vector<int>>& cache) {
 
 // Dynamic Programming - Time: O(n * m), Space: O(m), where m is num of cols
 int dp(int rows, int cols) {
-    int *prevRow = new int[cols]();
+    vector<int> prevRow(cols, 0);
 
     for (int r = rows - 1; r >= 0; r--) {
-        int* curRow = new int[cols]();
+        vector<int> curRow(cols, 0);
         curRow[cols - 1] = 1;
         for (int c = cols - 2; c >= 0; c--) {
             curRow[c] = curRow[c + 1] + prevRow[c];
         }
         prevRow = curRow;
     }
+
     return prevRow[0];
 }
-
