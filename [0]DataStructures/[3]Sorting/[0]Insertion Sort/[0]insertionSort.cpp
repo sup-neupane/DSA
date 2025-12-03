@@ -1,6 +1,6 @@
 #include <vector>
-
 using std::vector;
+
 
 vector<int> insertionSort(vector<int>& arr) {
     for (int i = 1; i < arr.size(); i++) {

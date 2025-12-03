@@ -48,13 +48,12 @@ class Solution {
         int dfs(int i, int j, int ROWS, int COLS, vector<vector<int>>& grid) {
             if (min(i, j) < 0 || i == ROWS || j == COLS || grid[i][j] != 1) {
                 return 0;
-            } else {
-                grid[i][j] = 0;
-                return 1 + dfs(i + 1, j, ROWS, COLS, grid)
+            } 
+            grid[i][j] = 0;
+            return 1 + dfs(i + 1, j, ROWS, COLS, grid)
                          + dfs(i - 1, j, ROWS, COLS, grid)
                          + dfs(i, j + 1, ROWS, COLS, grid)
                          + dfs(i, j - 1, ROWS, COLS, grid);
-            }
         }
     
         int maxAreaOfIsland(vector<vector<int>>& grid) {

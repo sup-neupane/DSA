@@ -7,7 +7,7 @@
 using namespace std;
 
 // GraphNode used for adjacency list
-class GraphNode {
+class GraphNode {   
 public:
     string val_;
     vector<string> neighbors_;

@@ -17,7 +17,7 @@ int bfs(vector<vector<int>>& grid) {
 
     while (!queue.empty()) {
         for (int i = 0; i < queue.size(); i++) {
-            auto [r, c] = queue.front(); 
+            auto [r, c] = queue.front()  ; 
             queue.pop();
 
             if (r == ROWS - 1 && c == COLS - 1) {
