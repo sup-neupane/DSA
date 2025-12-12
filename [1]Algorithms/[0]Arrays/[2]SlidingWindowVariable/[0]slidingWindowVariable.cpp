@@ -23,20 +23,17 @@ int longestSubarray(vector<int>& nums) {
 
 // Find length of minimum size subarray where the sum is 
 // greater than or equal to the target: O(n)
-int shortestSubarray(vector<int>& nums, int target) {
-    int L = 0, total = 0;
+int minSubArrayLen(int target, vector<int>& nums) {
+    int L = 0 , total = 0;
     int length = INT_MAX;
 
-    for (int R = 0; R < nums.size(); R++) {
+    for(int R = 0; R < nums.size(); R++){
         total += nums[R];
-        while (total >= target) {
-            length = min(R - L + 1, length);
+        while(total >= target){
+            length = min(length,R - L + 1);
             total -= nums[L];
             L++;
-        }
+            }
     }
-    if (length == INT_MAX) {
-        return 0;
-    } 
-    return length;
+    return (length == INT_MAX)?0:length;
 }

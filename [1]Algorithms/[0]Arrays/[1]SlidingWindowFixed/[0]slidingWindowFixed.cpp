@@ -11,7 +11,7 @@ using std::min;
 // eachother (i.e. arr[i] == arr[j] and abs(i - j) + 1 <= k).
 // O(n * k)
 bool closeDuplicatesBruteForce(vector<int>& nums, int k) {
-    int size = static_cast<int>(nums.size());
+    int size = nums.size();
     for (int L = 0; L < size; L++) {
         for (int R = L + 1; R < min(size, L + k); R++) {
             if (nums[L] == nums[R]) {

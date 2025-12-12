@@ -1,17 +1,24 @@
-//Range Sum Query - Immutable
-//https://leetcode.com/problems/range-sum-query-immutable/
+#include <vector>
+using namespace std;
 
+class PrefixSum {
+private:
+    vector<int> prefix;
 
-//Range Sum Query 2D - Immutable
-//https://leetcode.com/problems/range-sum-query-2d-immutable/
+public:
+    // Constructor: build prefix sum array
+    PrefixSum(vector<int>& nums) {
+        int total = 0;
+        for (int n : nums) {
+            total += n;
+            prefix.push_back(total);
+        }
+    }
 
-//Find Pivot Index
-//https://leetcode.com/problems/find-pivot-index/
-
-
-//Product of Array Except Self
-//https://leetcode.com/problems/product-of-array-except-self/
-
-
-//Subarray Sum Equals K
-//https://leetcode.com/problems/subarray-sum-equals-k/
+    // Get range sum from left to right (inclusive)
+    int rangeSum(int left, int right) {
+        int preRight = prefix[right];
+        int preLeft = (left > 0 ? prefix[left - 1] : 0);
+        return preRight - preLeft;
+    }
+};
