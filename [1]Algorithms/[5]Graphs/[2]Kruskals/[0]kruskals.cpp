@@ -2,17 +2,9 @@
 #include <unordered_map>
 #include <utility>
 #include <queue>
+#include <tuple>
 
-using std::vector;
-using std::unordered_map;
-using std::pair;
-using std::tuple;
-using std::get;
-using std::make_tuple;
-using std::make_pair;
-using std::priority_queue;
-using std::greater;
-
+using namespace std;
 /* UnionFind implementation */
 class UnionFind {
 public:
@@ -38,7 +30,7 @@ public:
 
     // Union by height / rank.
     // Return false if already connected, true otherwise.
-    bool union(int n1, int n2) {
+    bool uniod(int n1, int n2) {
         int p1 = find(n1), p2 = find(n2);
         if (p1 == p2) {
             return false;
@@ -83,7 +75,7 @@ vector<pair<int, int>> mst(vector<vector<int>>& edges, int n) {
         minHeap.pop();
         int w1 = get<0>(cur), n1 = get<1>(cur), n2 = get<2>(cur);
 
-        if (!unionFind.union(n1, n2)) {
+        if (!unionFind.uniod(n1, n2)) {
             continue;
         }
         mst.push_back({n1, n2});

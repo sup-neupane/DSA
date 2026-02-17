@@ -9,17 +9,7 @@
 #include <utility>
 #include <queue>
 
-using std::vector;
-using std::unordered_map;
-using std::unordered_set;
-using std::pair;
-using std::tuple;
-using std::get;
-using std::make_tuple;
-using std::make_pair;
-using std::priority_queue;
-using std::greater;
-
+using namespace std;
 // Given a list of edges of a connected undirected graph,
 // with nodes numbered from 1 to n,
 // return a list edges making up the minimum spanning tree.
